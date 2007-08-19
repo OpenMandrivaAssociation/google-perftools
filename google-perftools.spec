@@ -62,10 +62,15 @@ find . -type f|xargs file|grep 'CRLF'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 %build
+rm -f configure
+libtoolize --force --copy; aclocal -I m4; autoheader; automake --add-missing --copy --foreign; autoconf
 
-%configure2_5x
+%configure2_5x \
+%ifarch x86_64
+    --enable-frame-pointer
+%endif
 
-make
+%make
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
