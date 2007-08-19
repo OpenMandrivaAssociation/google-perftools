@@ -1,14 +1,15 @@
 %define	major 0
-%define libname	%mklibname google-perftools %{major}
+%define libname %mklibname google-perftools %{major}
+%define develname %mklibname google-perftools -d
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	0.8
+Version:	0.93
 Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD
-URL:		http://goog-perftools.sourceforge.net
-Source0:	http://prdownloads.sourceforge.net/goog-perftools/%{name}-%{version}.tar.bz2
+URL:		http://code.google.com/p/google-perftools/
+Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.gz
 BuildRequires:	file
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
@@ -28,13 +29,15 @@ The google-perftools packages contains some utilities to improve and analyze
 the performance of C++ programs.  This includes an optimized thread-caching
 malloc() and cpu and heap profiling utilities.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Static library and header files for the google-perftools library
 Group:		Development/C++
 Provides:	%{name}-devel = %{version}
+Provides:	%{libname}-devel = %{version}
+Obsoletes:	%{libname}-devel
 Requires:	%{libname} = %{version}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 The google-perftools packages contains some utilities to improve and analyze
 the performance of C++ programs.  This includes an optimized thread-caching
 malloc() and cpu and heap profiling utilities.
@@ -86,11 +89,9 @@ rm -rf %{buildroot}/usr/share/doc/google-perftools-%{version}
 %{_bindir}/pprof
 %{_mandir}/man1/pprof.1*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc doc/*.html doc/*.png doc/*.dot doc/*.gif doc/*.txt TODO
-%dir %{_includedir}/google/perftools
-%{_includedir}/google/perftools/*.h
 %{_includedir}/google/*.h
 %{_libdir}/*.a
 %{_libdir}/*.la
