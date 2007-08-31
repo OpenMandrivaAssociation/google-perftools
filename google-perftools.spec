@@ -5,7 +5,7 @@
 Summary:	Performance tools for C++
 Name:		google-perftools
 Version:	0.93
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	BSD
 URL:		http://code.google.com/p/google-perftools/
