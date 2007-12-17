@@ -13,7 +13,6 @@ Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.gz
 BuildRequires:	file
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 The google-perftools packages contains some utilities to improve and analyze
