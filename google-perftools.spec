@@ -4,8 +4,8 @@
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	0.93
-Release:	%mkrel 2
+Version:	0.98
+Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD
 URL:		http://code.google.com/p/google-perftools/
@@ -13,7 +13,7 @@ Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.gz
 BuildRequires:	file
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The google-perftools packages contains some utilities to improve and analyze
@@ -32,10 +32,10 @@ malloc() and cpu and heap profiling utilities.
 %package -n	%{develname}
 Summary:	Static library and header files for the google-perftools library
 Group:		Development/C++
-Provides:	%{name}-devel = %{version}
-Provides:	%{libname}-devel = %{version}
-Obsoletes:	%{libname}-devel
 Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}
+Provides:	lib%{name}-devel = %{version}
+Obsoletes:	%{mklibname google-perftools 0 -d}
 
 %description -n	%{develname}
 The google-perftools packages contains some utilities to improve and analyze
@@ -67,13 +67,13 @@ libtoolize --force --copy; aclocal -I m4; autoheader; automake --add-missing --c
 
 %configure2_5x \
 %ifarch x86_64
-    --enable-frame-pointer
+    --enable-frame-pointers
 %endif
 
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -89,7 +89,7 @@ rm -rf %{buildroot}/usr/share/doc/google-perftools-%{version}
 %endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
