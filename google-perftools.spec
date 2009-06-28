@@ -4,7 +4,7 @@
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	1.0
+Version:	1.3
 Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD
@@ -94,7 +94,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog INSTALL README
-%{_libdir}/lib*.so.*
+%{_libdir}/lib*.so.%{major}*
 %{_bindir}/pprof
 %{_mandir}/man1/pprof.1*
 
