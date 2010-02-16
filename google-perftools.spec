@@ -4,12 +4,13 @@
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	1.4
+Version:	1.5
 Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD
 URL:		http://code.google.com/p/google-perftools/
 Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.gz
+Patch0:		google-perftools-1.5-antibork.diff
 BuildRequires:	file
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
@@ -47,6 +48,7 @@ This package contains the static google-perftools library and its header files.
 %prep
 
 %setup -q
+%patch0 -p0
 
 find . -type d -perm 0700 -exec chmod 755 {} \;
 find . -type d -perm 0555 -exec chmod 755 {} \;
@@ -71,6 +73,9 @@ libtoolize --force --copy; aclocal -I m4; autoheader; automake --add-missing --c
 %endif
 
 %make
+
+%check
+make check
 
 %install
 rm -rf %{buildroot}
@@ -102,6 +107,5 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc doc/*.html doc/*.png doc/*.dot doc/*.gif doc/*.txt TODO
 %{_includedir}/google/*.h
-%{_libdir}/*.a
-%{_libdir}/*.la
+%{_libdir}/*.*a
 %{_libdir}/*.so
