@@ -4,12 +4,12 @@
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	1.6
-Release:	%mkrel 2
+Version:	1.7
+Release:	%mkrel 1
 Group:		System/Libraries
 License:	BSD
 URL:		http://code.google.com/p/google-perftools/
-Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.lzma
+Source0:	http://google-perftools.googlecode.com/files/%{name}-%{version}.tar.gz
 Patch0:		google-perftools-1.5-antibork.diff
 BuildRequires:	file
 BuildRequires:	libtool
@@ -109,3 +109,4 @@ rm -rf %{buildroot}
 %{_includedir}/google/*.h
 %{_libdir}/*.*a
 %{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
