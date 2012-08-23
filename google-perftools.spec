@@ -1,11 +1,11 @@
-%define	major 0
+%define	major 4
 %define libname %mklibname google-perftools %{major}
 %define develname %mklibname google-perftools -d
 
 Summary:	Performance tools for C++
 Name:		google-perftools
-Version:	1.8.1
-Release:	%mkrel 1
+Version:	1.10
+Release:	1
 Group:		System/Libraries
 License:	BSD
 URL:		http://code.google.com/p/google-perftools/
@@ -85,14 +85,6 @@ rm -rf %{buildroot}
 # cleanup
 rm -rf %{buildroot}/usr/share/doc/google-perftools-%{version}
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %clean
 rm -rf %{buildroot}
 
@@ -100,6 +92,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog INSTALL README
 %{_libdir}/lib*.so.%{major}*
+%{_libdir}/libprofiler.so.0*
 %{_bindir}/pprof
 %{_mandir}/man1/pprof.1*
 
