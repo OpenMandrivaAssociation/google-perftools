@@ -1,0 +1,25 @@
+--- Makefile.am	2011-07-15 03:53:48.000000000 +0200
++++ Makefile.am.oden	2011-07-27 14:36:34.643518354 +0200
+@@ -389,11 +389,7 @@
+                               src/malloc_hook_mmap_linux.h \
+                               src/malloc_hook_mmap_freebsd.h \
+                               src/maybe_threads.h
+-SG_TCMALLOC_MINIMAL_INCLUDES = src/google/malloc_hook.h \
+-                               src/google/malloc_hook_c.h \
+-                               src/google/malloc_extension.h \
+-                               src/google/malloc_extension_c.h \
+-                               src/google/stacktrace.h
++
+ TCMALLOC_MINIMAL_INCLUDES = $(S_TCMALLOC_MINIMAL_INCLUDES) $(SG_TCMALLOC_MINIMAL_INCLUDES)
+ googleinclude_HEADERS += $(SG_TCMALLOC_MINIMAL_INCLUDES)
+ 
+@@ -1138,8 +1134,7 @@
+                           src/base/sysinfo.h \
+                           $(SPINLOCK_INCLUDES) \
+                           $(LOGGING_INCLUDES)
+-SG_CPU_PROFILER_INCLUDES = src/google/profiler.h \
+-                           src/google/stacktrace.h
++SG_CPU_PROFILER_INCLUDES = src/google/profiler.h
+ CPU_PROFILER_INCLUDES = $(S_CPU_PROFILER_INCLUDES) $(SG_CPU_PROFILER_INCLUDES)
+ googleinclude_HEADERS += $(SG_CPU_PROFILER_INCLUDES)
+ 
