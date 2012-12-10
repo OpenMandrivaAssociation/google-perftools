@@ -103,3 +103,65 @@ rm -rf %{buildroot}
 %{_libdir}/*.*a
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
+
+
+%changelog
+* Thu Aug 23 2012 Crispin Boylan <crisb@mandriva.org> 1.10-1
++ Revision: 815650
+- New release
+
+* Wed Jul 27 2011 Oden Eriksson <oeriksson@mandriva.com> 1.8.1-1
++ Revision: 691913
+- 1.8.1
+
+* Tue Feb 22 2011 Oden Eriksson <oeriksson@mandriva.com> 1.7-1
++ Revision: 639292
+- 1.7
+
+* Tue Nov 30 2010 Shlomi Fish <shlomif@mandriva.org> 1.6-2mdv2011.0
++ Revision: 603236
+- Bumped the release number for a new gcc-4.5.1 compiled build (with better performance)
+
+* Sun Sep 19 2010 Shlomi Fish <shlomif@mandriva.org> 1.6-1mdv2011.0
++ Revision: 579902
+- Upgraded to 1.6 and replaced the tar.gz with tar.lzma
+
+* Tue Feb 16 2010 Oden Eriksson <oeriksson@mandriva.com> 1.5-1mdv2010.1
++ Revision: 506594
+- disable the test suite for now
+- 1.5
+- fix install
+- 1.4
+- 1.3
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sun Feb 01 2009 Oden Eriksson <oeriksson@mandriva.com> 1.0-1mdv2009.1
++ Revision: 336146
+- 1.0
+
+* Sun Jul 20 2008 Oden Eriksson <oeriksson@mandriva.com> 0.98-1mdv2009.0
++ Revision: 239028
+- 0.98
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Fri Aug 31 2007 Oden Eriksson <oeriksson@mandriva.com> 0.93-2mdv2008.0
++ Revision: 76891
+- rebuild
+
+* Sun Aug 19 2007 Oden Eriksson <oeriksson@mandriva.com> 0.93-1mdv2008.0
++ Revision: 66843
+- fix build
+- 0.93
+- conform to the 2008 specs
+- Import google-perftools
+
