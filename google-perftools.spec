@@ -9,7 +9,7 @@ Version:	2.1
 Release:	2
 Group:		System/Libraries
 License:	BSD
-URL:		http://code.google.com/p/%{alias}/
+URL:		https://code.google.com/p/%{alias}/
 Source0:	http://%{alias}.googlecode.com/files/%{alias}-%{version}.tar.gz
 BuildRequires:	file
 BuildRequires:	libtool
